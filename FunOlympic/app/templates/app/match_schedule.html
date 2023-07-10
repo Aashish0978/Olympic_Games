@@ -1,0 +1,68 @@
+{% extends 'app/base.html' %} 
+{% load static %}
+{% block title %}
+Matchschedule
+{% endblock %}
+{% block body %}
+
+
+    <!--================= Match Result Section Start Here =================-->
+    <div class="rts-match-result-section rts-match-result-section2 rts-match-schedule-section inner section-gap">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    {% for item in matches %}
+                    <div class="match-single">
+                        <div class="match-single-content">
+                            <div class="match-scores">
+                                <div class="club club1">
+                                    <div class="club-logo mr--20">
+                                        <span class="club-name">{{item.team_1}}</span>
+                                        <img src="{{item.team1_image.url}}" alt="club-logo">
+                                    </div>
+                                </div>
+                                <div class="colon">VS</div>
+                                <div class="club club2">
+                                    <div class="club-logo ml--20">
+                                        <img src="{{item.team2_image.url}}" alt="club-logo">
+                                        <span class="club-name">{{item.team_2}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-wrap">
+                                <span class="match-title">{{item.sport}}</span>
+                                <span class="match-date">{{item.date}}</span>
+                                <span class="stadium-name">{{item.location}}</span>
+                            </div>
+                        </div>
+                        <div class="match-bottom-action">
+                            <a href="{% url 'booking' %}" class="action-item first-child">GET TICKETS</a>
+                             <div class="play-video">
+                                <a href="https://www.youtube.com/watch?v=G4t6TqG5LM8"
+                                    class="action-item popup-video">WATCH STREAM</a>
+                            </div>
+                             
+                        </div>
+                    </div>  
+                </div>
+                {% endfor %} 
+            </div>
+            <div class="text-center" >
+          
+                {% if matches.has_previous %}
+                <button class="prev"><a href="?page={{ matches.previous_page_number }}" class="btn btn-secondary mx-2">&laquo;</a></button>
+                {% endif %}
+               
+                <a href="?page=1" class="btn btn-secondary">1</a>
+                <a href="?page=2" class="btn btn-secondary">2</a>
+                <a href="?page=3" class="btn btn-secondary">3</a>
+              
+                {% if matches.has_next %}
+                <button class="next"><a href="?page={{ matches.next_page_number }}" class="btn btn-secondary mx-2">&raquo;</a></button>
+                {% endif %}
+              
+              </div>
+        </div>
+    </div>
+    <!--================= Match Result Section End Here =================-->
+{% endblock %}

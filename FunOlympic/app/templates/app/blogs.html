@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+ Blog 
+{% endblock %}
+{% block body %}
+
+  <div class="col-md-12" data-aos="fade-up">
+    {% for item in blog %} 
+    <div class="d-md-flex post-entry-2 half mt-5 ">
+      <a href="{% url 'blogdetails' item.details_slug %}" class="col-md-1">
+        <img src="{{item.image.url}}" alt="" class="img-fluid"></a>
+    <div>
+        <div class="post-meta">{{item.date}}</div>
+        <h2 class="mb-4 display-4">{{item.title|truncatechars:20}}</h2>
+          <p>{{item.description|truncatechars:350}}</p> 
+          <a href="{% url 'blogdetails' item.details_slug %}" class="btn btn-primary"> Read more</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock%}

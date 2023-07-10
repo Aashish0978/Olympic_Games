@@ -1,0 +1,190 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% comment %} {% block title %} Sports {% endblock %} {% endcomment %}
+{% block body %}
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Live Streaming Page</title>
+  <style>
+    {% comment %} .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    } {% endcomment %}
+
+    h1, h2 {
+      text-align: center;
+    } 
+
+    #video-player {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      background-color: #f0f0f0;
+    }
+
+    #play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background-image: url('play-button.png');
+      background-size: cover;
+      cursor: pointer;
+    }
+
+    #video-iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    #comment-section {
+      margin-top: 20px;
+    }
+
+    #comment-input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    #comment-list {
+      max-height: 200px;
+      overflow-y: scroll;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+  </style>
+</head> 
+<body>
+
+    
+      <!--================= Video Section Start Here =================-->
+   {% comment %} <div class="video-section-inner text-center ">
+    <h1 class="section-title">Live</h1>
+    </div>
+
+    <iframe width="100%" height="500px" src="{{streaming_video.video_url}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+     {% endcomment %}
+
+
+
+   {% comment %} <div class="rts-video-section">
+     <div class="container">
+         <div class="video-section-inner text-center">
+          
+
+         </div>
+     </div> {% endcomment %}
+ {% comment %} </div> {% endcomment %}
+
+
+   <!--================= INSIGHTS Section Start Here =================-->
+   <div class="rts-match-insights-section section-gap">
+    <div class="container">
+        <div class="section-title-area section-title-area-inner mb--50">
+            <h1 class="section-title title-center">Live Streaming</h1>
+        </div>
+        <div class="section-inner">
+            <div class="match-video">
+                {% comment %} <div class="video-thumb"><img src="{% static 'app/assets/images/details/insgt.jpg '%}" alt="video-thumb"> {% endcomment %}
+                    {% comment %} <div class="play-btn play-video"> {% endcomment %}
+                      {% comment %} <a class="popup-video"
+                            href="https://www.youtube.com/watch?v=A2umBpnjPg8"  target="_blank" data-effect="mfp-move-horizontal"><i
+                                class="fas fa-play"></i></a> {% endcomment %}
+                               {% comment %} <iframe width="560" height="315" src="https://www.youtube.com/embed/A2umBpnjPg8" frameborder="0" allowfullscreen></iframe> {% endcomment %}
+
+                    {% comment %} </div> {% endcomment %}
+                {% comment %} </div> {% endcomment %}
+            </div>
+           
+        </div>
+    </div>
+</div>
+<!--================= INSIGHTS Section End Here =================-->
+
+ <!--================= VIdeo Section End Here =================-->
+  <!--================= Video Section Start Here =================-->
+<div class="rts-video-section">
+    <div class="container">
+        <div class="video-section-inner text-center">
+            <div class="play-video">
+                <a class="popup-video" href="{{streaming_video.video_url}}"><i
+                        class="fas fa-play"></i></a>
+            </div>
+        </div>
+    </div>
+</div> 
+<!--================= VIdeo Section End Here =================-->
+<div class="container">
+  <form method="post" action="{% url 'comments'%}">
+    {% csrf_token %}
+    <input type="hidden" value="{{streaming_video.id}}" name="video"> 
+    <div id="comment-section" center>
+      <h2>Comments</h2>
+      <input type="text" name="vido_cmt" id="comment-input" placeholder="Write a comment...">
+      <input type="submit" name="submit" value="submit">
+      {% comment %} <button id="comment-btn">Submit</button> {% endcomment %}
+      <div id="comment-list">
+        {% for item in comments%}
+        <text>{{item.person}} - {{item.comments}}</text><br>
+        {%endfor%}
+      </div>
+      
+      
+    </div>
+  </div>
+</form>
+</div>
+
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var commentInput = document.getElementById('comment-input');
+      var commentBtn = document.getElementById('comment-btn');
+      var commentList = document.getElementById('comment-list');
+      var videoIframe = document.getElementById('video-iframe');
+      var playButton = document.getElementById('play-button');
+
+      // Profanity filter
+      var profanityFilter = /fuck|shit|asshole/i;
+
+      commentBtn.addEventListener('click', function() {
+        var comment = commentInput.value;
+        if (comment.trim() !== '') {
+          if (!profanityFilter.test(comment)) {
+            var commentItem = document.createElement('div');
+            commentItem.classList.add('comment-item');
+            commentItem.innerText = comment;
+            commentList.appendChild(commentItem);
+          } else {
+            alert('Comment contains inappropriate language. Please revise your comment.');
+          }
+
+          commentInput.value = '';
+        }
+      });
+
+    
+   
+      // Toggle play button visibility
+      playButton.addEventListener('click', function() {
+        playButton.style.display = 'none';
+        videoIframe.src += "?autoplay=1";
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+{%endblock%}

@@ -1,0 +1,455 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="darkmode" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FunOlympic Games 
+        {% block title %}
+       
+        {% endblock  %}
+    </title>
+    <!--================= Favicon =================-->
+    <link rel="apple-touch-icon" href="{% static 'app/assets/images/fav.png'%}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'app/assets/images/fav.png'%}">
+    <!--================= Bootstrap V5 CSS =================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/assets/css/bootstrap.min.css '%}">
+    <!--================= Font Awesome 5 CSS =================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/assets/css/all.min.css '%}">
+    <!--================= RT Icons CSS =================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/assets/css/rt-icons.css '%}">
+    <!--================= Animate css =================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/assets/css/animate.min.css '%}">
+    <!--================= Magnific popup Plugin =================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/assets/css/magnific-popup.css '%}">
+    <!--================= Animate css =================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/assets/css/magnific.css '%}">
+    <!--================= Animate css =================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/assets/css/animate.min.css '%}">
+    <!--================= Swiper Slider Plugin =================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/assets/css/swiper-bundle.min.css '%}">
+    <!--================= Mobile Menu CSS =================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/assets/css/metisMenu.css '%}">
+    <!--================= Main Menu CSS =================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/assets/css/rtsmenu.css '%}">
+    <!--================= Main Stylesheet =================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/assets/css/variables/variable1.css '%}">
+    <!--================= Main Stylesheet =================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'app/assets/css/main.css '%}">
+</head>
+
+<body>
+    <div class="anywere anywere-home"></div>
+
+    <!--================= Header Section Start Here =================-->
+    <header id="rtsHeader" class="rts-header1">
+        <div class="navbar-sticky">
+            <div class="navbar-part navbar-part1">
+                <div class="container">
+                    <div class="navbar-inner">
+                        <a href="/" class="logo"><img src="{% static 'app/assets/images/dash.png' %}" class="circle" alt="sportius-logo" style=" height: 100px; 
+                            width: 95px; border-radius:60%;"></a>
+                        <a href="/" class="logo-sticky"><img src="{% static 'app/assets/images/dash.png' %}" class="circle" alt="sportius-logo" style=" height: 100px; 
+                            width: 95px; border-radius:60%;"
+                                alt="Olympic-logo"></a>
+                        <div class="rts-menu">
+                            <nav class="menus menu-toggle">
+                                <ul class="nav__menu">
+                                    <li><a class="menu-item" href="/">Home</a></li>
+                                    <li><a class="menu-item" href="{% url 'about' %}">About</a></li>
+                                    <li><a class="menu-item" href="{% url 'gallery' %}">Gallery</a></li>
+                                    <li class="has-dropdown"><a class="menu-item" href="#">Pages</a>
+                                        <ul class="dropdown-ul mega-dropdown">
+                                            <li class="mega-dropdown-li">
+                                                <ul class="mega-dropdown-ul">
+                                                    <li class="dropdown-li"><a class="dropdown-link"
+                                                            href="{% url 'atheletes' %}">Atheletes</a>
+                                                    </li>
+                                                    <li class="dropdown-li"><a class="dropdown-link"
+                                                        href="{% url 'history' %}">History</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="mega-dropdown-li">
+                                                <ul class="mega-dropdown-ul">
+                                                    <li class="dropdown-li"><a class="dropdown-link"
+                                                            href="{% url 'match_schedule' %}">Match Schedule</a>
+                                                    </li>
+                                                    <li class="dropdown-li"><a class="dropdown-link"
+                                                            href="{% url 'matchresult' %}">Match
+                                                            Result</a>
+                                                    </li>
+                                                    {% comment %} <li class="dropdown-li"><a class="dropdown-link"
+                                                            href="{% url 'leaguestandings' %}">Point Table</a>
+                                                    </li> {% endcomment %}
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="menu-item" href="{% url 'news' %}">News</a></li>
+                                    <li><a class="menu-item" href="{% url 'blogs' %}">Blog</a></li>
+                                    {% if request.user.username %}
+                                    <li><a class="menu-item" href="{% url 'streaming' %}">Live</a></li>
+                                    {% endif %}
+                                    <li class="has-dropdown"><a class="menu-item" href="{% url 'sports' %}">Sports</a>
+                                        <ul class="dropdown-ul">
+                                            {% for item in sport_ctg %}
+                                            <li class="dropdown-li"><a class="dropdown-link" href="{% url 'sport_relatedcategory' item.ctg_slug %}">{{item.category_name}}</a>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                    <li><a class="menu-item" href="{% url 'contact' %}">Contact</a></li>
+                                    {% if request.user.username %}
+                                    <li><a class="menu-item" href="{% url 'account' %}">My Account</a></li>
+                                    {% else %}
+                                    <li><a class="menu-item" href="{% url 'signup'%}">Signup</a></li>
+                                    {% endif %}
+                                 
+                                </ul>
+                                
+                                
+                            </nav>
+                            
+                        </div>
+                        <div class="header-action-items header-action-items1">
+                            {% comment %} <div class="search-part">
+                                <div class="search-icon action-item icon"><i class="rt-search"></i></div>
+                                <div class="search-input-area">
+                                    <div class="container">
+                                        <div class="search-input-inner">
+                                            <select class="custom-select select-hidden">
+                                                <option value="hide">All Catagorys</option>
+                                                <option value="all">All</option>
+                                                <option value="league">League</option>
+                                                <option value="club">Club</option>
+                                                <option value="team">Team</option>
+                                                <option value="player">Player</option>
+                                                <option value="match">Match</option>
+                                                <option value="score">Score</option>
+                                            </select>
+                                            <div class="input-div">
+                                                <div class="search-input-icon"><i class="rt-search mr--10"></i></div>
+                                                <input id="searchInput1" class="search-input" type="text"
+                                                    placeholder="Search by keyword or #">
+                                            </div>
+                                            <div class="search-close-icon"><i class="rt-xmark"></i></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>{% endcomment %}
+                            <div class="cart action-item">
+                                <div class="cart-nav">
+                                    <div class="basket-icon cart-icon icon"><a href="#0"><i
+                                                class="fal fa-shopping-basket"></i></a></div>
+                                </div>
+                            </div>
+                        </div> 
+                        <a class="hamburger-menu aitem d-block">
+                            <div class="hamburger-menu-inner">
+                                <span></span>
+                                <span class=""></span>
+                                <span></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--================= Slide Bar Start Here =================-->
+        <aside class="slide-bar">
+            <div class="offset-sidebar">
+                <button class="slide-bar-close ml--30"><i class="fal fa-times"></i></button>
+                <div class="offset-widget offset-logo mb-30">
+                    <a href="/">
+                        <img src="{% static 'app/assets/images/dash.png' %}" class="circle" alt="sportius-logo" style=" height: 100px; 
+                        width: 105px; border-radius:70%;">
+                    </a>
+                </div>
+            </div>
+            <!-- side-mobile-menu start -->
+            <nav class="side-mobile-menu side-mobile-menu1">
+                <ul id="mobile-menu-active">
+                        <a class="mm-link" href="/">Home</a></li>
+                    <li><a class="mm-link" href="{% url 'about' %}">About</a></li>
+                    <li><a class="mm-link" href="{% url 'gallery' %}">Gallery</a></li>
+                    <li><a class="mm-link" href="{% url 'blogs' %}">Blog</a></li>
+                    <li><a class="mm-link" href="{% url 'streaming' %}">Live</a></li>
+                   <li class="has-dropdown firstlvl">
+                        <a class="mm-link" href="{% url 'sports' %}">Sports<i class="rt-angle-down"></i></a>
+                        <ul>
+                            {% for item in sport_ctg %}
+                            <li><a href="{% url 'sport_relatedcategory' item.ctg_slug %}">{{item.category_name}}</a></li>
+                            
+                            {% endfor %}
+                        </ul>
+                    </li> 
+                    <li class="has-dropdown firstlvl">
+                        <a class="mm-link" href="/">Pages <i class="rt-angle-down"></i></a>
+                        <ul class="sub-menu mega-dropdown-mobile">
+                            <li class="mega-dropdown-li">
+                                <ul class="mega-dropdown-ul mm-show">
+                                    <li class="dropdown-li"><a class="dropdown-link" href="{% url 'atheletes' %}">Atheletes</a>
+                                    </li>
+                                    
+                                    <li class="dropdown-li"><a class="dropdown-link" href="{% url 'history' %}">History</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="mega-dropdown-li">
+                                <ul class="mega-dropdown-ul mm-show">
+                                    <li class="dropdown-li"><a class="dropdown-link" href="{% url 'match_schedule' %}">Match
+                                            Schedule</a>
+                                    </li>
+                                    <li class="dropdown-li"><a class="dropdown-link" href="{% url 'matchresult' %}">Match
+                                            Result</a>
+                                    </li>
+                                    {% comment %} <li class="dropdown-li"><a class="dropdown-link" href="{% url 'leaguestandings' %}">Point Table</a>
+                                    </li> {% endcomment %}
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a class="mm-link" href="{% url 'news' %}">News</a></li>
+                    <li><a class="mm-link" href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- side-mobile-menu end -->
+            <div class="side-bar-social-links">
+                <a href="#0" class="platform"><i class="fab fa-facebook-f"></i></a>
+                <a href="#0" class="platform"><i class="fab fa-twitter"></i></a>
+                <a href="#0" class="platform"><i class="fab fa-behance"></i></a>
+                <a href="#0" class="platform"><i class="fab fa-youtube"></i></a>
+            </div>
+        </aside>
+        <!--================= Slide Bar Start Here =================-->
+
+        <!--================= Banner Section Start Here =================-->
+        <div class="banner banner1">
+            <div class="swiper bannerSlide">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="banner-single banner-single-1 banner-bg"> 
+                            <div class="container">
+                                <div class="banner-content">
+                                    <span class="pretitle">WELCOME TO FUN OLYMPIC GAMES </span>
+                                    <h1 class="banner-heading">FUNOLYMPIC<BR>
+                                        &nbsp;&nbsp;&nbsp;GAMES</h1>
+                                     <div class="banner-btn-area">
+                                        <a href="{% url 'atheletes' %}" class="team-btn banner-btn">OUR TEAM <i
+                                                class="far fa-long-arrow-right ml--5"></i></a>
+                                        {% comment %}<a href="#0" class="nxt-match-btn banner-btn">NEXT MATCH <i
+                                                class="far fa-long-arrow-right ml--5"></i></a>{% endcomment %}
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="banner-single banner-single-2 banner-bg">
+                            <div class="container">
+                                <div class="banner-content">
+                                    <span class="pretitle">WELCOME TO FUN OLYMPIC</span>
+                                    <h1 class="banner-heading">FIRST SPORTS <BR>
+                                        HELD ON CHINA</h1>
+                                    <div class="banner-btn-area">
+                                        <a href="{% url 'atheletes' %}" class="team-btn banner-btn">OUR TEAM <i
+                                                class="far fa-long-arrow-right ml--5"></i></a>
+                                       {% comment %}  <a href="#0" class="nxt-match-btn banner-btn">NEXT MATCH <i
+                                                class="far fa-long-arrow-right ml--5"></i></a>{% endcomment %}
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="banner-single banner-single-3 banner-bg">
+                            <div class="container">
+                                <div class="banner-content">
+                                    <span class="pretitle">WELCOME TO ALL</span>
+                                    <h1 class="banner-heading">YOKYO<BR>
+                                       &nbsp;&nbsp;&nbsp;CITY </h1>
+                                     <div class="banner-btn-area">
+                                        <a href="{% url 'atheletes' %}" class="team-btn banner-btn">OUR TEAM <i
+                                                class="far fa-long-arrow-right ml--5"></i></a>
+                                       {% comment %} <a href="#0" class="nxt-match-btn banner-btn">NEXT MATCH <i
+                                                class="far fa-long-arrow-right ml--5"></i></a>{% endcomment %}
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-pagination-area">
+                    <div class="swiper-pagination">
+                        <span class="swiper-pagination-bullet one"></span>
+                        <span class="swiper-pagination-bullet two"></span>
+                        <span class="swiper-pagination-bullet three"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--================= Banner Section End Here =================-->
+    </header>
+    <!--================= Header Section End Here =================-->
+
+
+
+{% block body %}
+
+{% endblock  %}
+
+
+
+
+
+        <!--================= Footer Start Here =================-->
+    <div class="footer footer1">
+        <div class="container">
+                <div class="footer-inner">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-6">
+                            <div class="footer-widget">
+                                <div class="footer-logo"><img src="{% static 'app/assets/images/dash.png' %}" class="circle" alt="sportius-logo" style=" height: 100px; 
+                                    width: 105px; border-radius:70%;">
+                                </div>
+                                <p class="footer-text">It was the end of a period in the 1980s
+                                    in which it seemed like every NBA Finals
+                                    matchup featured the Celtics sports club.</p>
+                                <div class="social-links">
+                                    <a href="https://www.facebook.com/olympics/" class="platform"><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a href="https://twitter.com/Olympics" class="platform"><i
+                                            class="fab fa-twitter"></i></a>
+                                    <a href="https://www.youtube.com/channel/UCTl3QQTvqHFjurroKxexy2Q" class="platform"><i
+                                            class="fab fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                     
+                        <div class="col-xl-4 col-md-6">
+                            <div class="footer-widget address-widget">
+                                <h3 class="footer-widget-title"><span class="decorator"></span> GET IN TOUCH</h3>
+                                <ul>
+                                    <li class="widget-list-item"><i class="fas fa-envelope-open"></i><a
+                                            href="mailto:info@webmail.com">FUNOLYMPIC@WEBMAIL.COM</a></li>
+                                    <li class="widget-list-item"><i class="fas fa-phone"></i><a href="tel:09877788890">098
+                                            777
+                                            888 90</a></li>
+                                    <li class="widget-list-item"><i class="fas fa-map-marker-alt"></i> <span>YOKYO, CITY
+                                            20,
+                                            FIRST <br>
+                                            AVENUE, CHINA</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                      <div class="col-xl-4 col-md-6">
+                            <div class="footer-widget news-widget">
+                                <h3 class="footer-widget-title"><span class="decorator"></span> POST GALLERY</h3>
+                                <div class="recent-post">
+                                    <div class="picture" >
+                                        <a href="#">
+                                            <img src="{% static 'app/assets/images/footer/news1.png' %}" alt="side-post-image">
+                                        </a>
+                                    </div>
+                                    <div class="picture">
+                                        <a href="#">
+                                            <img src="{% static 'app/assets/images/footer/news2.png' %}" alt="side-post-image">
+                                        </a>
+                                    </div> 
+                                     <div class="picture">
+                                        <a href="#">
+                                            <img src="{% static 'app/assets/images/footer/news3.png' %}" alt="side-post-image">
+                                        </a>
+                                    </div> 
+                                </div>
+                               
+                                 <div class="recent-post post2">
+                                    <div class="picture">
+                                        <a href="#">
+                                            <img src="{% static 'app/assets/images/footer/news4.png' %}" alt="side-post-image">
+                                        </a>
+                                    </div>
+                                    <div class="picture">
+                                        <a href="#">
+                                            <img src="{% static 'app/assets/images/footer/news5.png' %}" alt="side-post-image">
+                                        </a>
+                                    </div>
+                                    <div class="picture">
+                                        <a href="#">
+                                            <img src="{% static 'app/assets/images/footer/news6.png' %}" alt="side-post-image">
+                                        </a>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="bottom-area-inner">
+                        <span class="copyright">COPYRIGHT & DESIGN BY <span class="brand">FunOlympic</span> - 2023</span>
+                        <div class="footer-bottom-links">
+                            <a href="#">TERMS & CONDITONS</a>
+                            <a href="#">CAREER</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--================= Footer End Here =================-->
+    
+
+
+        <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/649bb2b594cf5d49dc603e1c/1h40346jk';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+    
+        <!--================= Scroll to Top Start =================-->
+        <div class="scroll-top-btn scroll-top-btn1"><i class="fas fa-angle-up arrow-up"></i><i
+                class="fas fa-circle-notch"></i></div>
+        <!--================= Scroll to Top End =================-->
+    
+        <!--================= Jquery latest version =================-->
+        <script src="{% static 'app/assets/js/vendors/jquery-3.6.0.min.js' %}"></script>
+        <!--================= Bootstrap latest version =================-->
+        <script src="{% static 'app/assets/js/vendors/bootstrap.min.js' %}"></script>
+        <!--================= Wow.js =================-->
+        <script src="{% static 'app/assets/js/vendors/wow.min.js' %}"></script>
+        <!--================= Swiper Slider =================-->
+        <script src="{% static 'app/assets/js/vendors/swiper-bundle.min.js' %}"></script>
+        <!--================= Zoom Plugin =================-->
+        <script src="{% static 'app/assets/js/vendors/zoom.js' %}"></script>
+        <!--================= counter up Plugin =================-->
+        <script src="{% static 'app/assets/js/vendors/jquery.counterup.min.js' %}"></script>
+        <!--================= Timer Plugin =================-->
+        <script src="{% static 'app/assets/js/vendors/timer.js' %}"></script>
+        <!--================= metisMenu Plugin =================-->
+        <script src="{% static 'app/assets/js/vendors/metisMenu.min.js' %}"></script>
+        <!--================= Main Menu Plugin =================-->
+        <script src="{% static 'app/assets/js/vendors/rtsmenu.js' %}"></script>
+        <!--================= Mobile Menu Plugin =================-->
+        <script src="{% static 'app/assets/js/vendors/metisMenu.min.js' %}"></script>
+        <!--================= Magnefic Popup Plugin =================-->
+        <script src="{% static 'app/assets/js/vendors/isotope.pkgd.min.js' %}"></script>
+        <!--================= Magnefic Popup Plugin =================-->
+        <script src="{% static 'app/assets/js/vendors/jquery.magnific-popup.min.js' %}"></script>
+        <!--================= Main Script =================-->
+        <script src="{% static 'app/assets/js/main.js' %}"></script>
+    </body>
+    
+</html>

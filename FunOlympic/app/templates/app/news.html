@@ -1,0 +1,173 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+News 
+{% endblock %}
+{% block body %}
+
+    <!--news-feed-area start-->
+    <section class="news-feed-section section-gap">
+        <div class="container">
+            <div class="row ">
+               
+                <div class="col-xl-9 col-md-4">
+                    <div class="news-feed-area">
+                        {% for item in news %}
+                        <div class="blog-item feed-blog-item">
+                            <img src="{{item.image.url}}" alt="blog-image">
+                            <div class="contents">
+                                <div class="flex-wrapper">
+                                    <span class="catagory-tag"> DESIGN</span>
+                                    <div class="blog-author">
+                                        <div class="author-dp"><img src="{% static 'app/assets/images/items/author8.png' %}"
+                                                alt="author-dp"></div>
+                                        <span class="author-name">BY HETMAYAR</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="blog-title">{{item.title}}</a>
+                                <p>{{item.description}}</p>
+                            </div>
+                        </div>
+                        {% endfor %}  
+                        {% comment %} <div class="blog-item feed-blog-item">
+                            <div class="blog-picture"><img src="{{item.image.url}}" alt="blog-image">
+                                <div class="play-btn play-video"><a class="popup-video"
+                                        href="https://www.youtube.com/watch?v=G4t6TqG5LM8"
+                                        data-effect="mfp-move-horizontal"><i class="fas fa-play"></i></a>
+                                </div>
+                            </div> 
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+               
+            
+                <div class="col-xl-3 col-md-4">
+                    <div class="news-right-widget">
+                        <div class="widget widget-search mb-4">
+                            <div class="widget-title-box pb-25 mb-30">
+                                <h4 class="widget-sub-title2 fs-20">Search Here</h4>
+                            </div>
+                            <form class="subscribe-form mb-10" action="#">
+                                <input type="text" placeholder="Keyword...">
+                                <button class="widget-btn"><i class="far fa-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="widget widget-post mb-40">
+                            <div class="widget-title-box pb-25 mb-30">
+                                <h4 class="widget-sub-title2 fs-20">Popular Feeds</h4>
+                            </div>
+                            <ul class="post-list">
+                                <li>
+                                    <div class="blog-post mb-30">
+                                        <a href="{#}"><img src="{% static 'app/assets/images/blog/quickblog1.jpg' %}"
+                                                alt="Post Img"></a>
+                                        <div class="post-content">
+                                            <h6 class="mb-10"><a href="{#}">Having education in
+                                                    an area helps</a></h6>
+                                            <span class="fs-14"><i class="fas fa-calendar-alt"></i> 24th March
+                                                2023</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="blog-post mb-30">
+                                        <a href="{#}"><img src="{% static 'app/assets/images/blog/quickblog2.png' %}"
+                                                alt="Post Img"></a>
+                                        <div class="post-content">
+                                            <h6 class="mb-10"><a href="{#}">People think, feel, &
+                                                    behave in a way</a></h6>
+                                            <span class="fs-14"><i class="fas fa-calendar-alt"></i> 24th March
+                                                2023</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="blog-post mb-30">
+                                        <a href="{#}"><img src="{% static 'app/assets/images/blog/quickblog3.png' %}"
+                                                alt="Post Img"></a>
+                                        <div class="post-content">
+                                            <h6 class="mb-10"><a href="{#}">That contributes to
+                                                    their success</a></h6>
+                                            <span class="fs-14"><i class="fas fa-calendar-alt"></i> 24th March
+                                                2023</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--news-feed-area end-->
+
+  <!--================= LATEST NEWS VIDEOS Start Here =================-->
+  
+    <div class="container">
+        <div class="section-title-area section-title-area1 text-center mb--50">
+            <span class="pretitle">INSIGHTS</span>
+            <h1 class="section-title"> LATEST NEWS VIDEOS</h1>
+        </div>
+            <div class="row">
+                <div class="col-xl-4 col-md-6">
+                    <div class="blog-item feed-blog-item">
+                        <div class="blog-picture" >
+                            <div class="play-btn play-video " style="position:relative;">
+                            <img src="{% static 'app/assets/images/vid2.jpg' %}" alt="blog-image">
+                            <a class="popup-video"
+                                href="{% static 'app/assets/videos/ceremonies.mp4' %}" 
+                                data-effect="mfp-move-horizontal"><i class="fas fa-play"></i></a>
+                                 <div class="title " style="position:absolute; bottom:20px; left:20px; z-index:100;"> <h5 class="text-white text-center">Opening ceremonies Kick off</h5></div>
+                            <div>
+                                 
+                        </div>                            
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-6">
+                    <div class="blog-item feed-blog-item">
+                        <div class="blog-picture" >
+                            <div class="play-btn play-video " style="position:relative;">
+                            <img src="{% static 'app/assets/images/bn.jpeg' %}" alt="blog-image">
+                            <a class="popup-video"
+                                href="{% static 'app/assets/videos/apolo.mp4' %}" 
+                                data-effect="mfp-move-horizontal"><i class="fas fa-play"></i></a>
+                                 <div class="title " style="position:absolute; bottom:20px; left:20px; z-index:100;"> <h5 class="text-white text-center">Olympic great Apolo Ohno on this year's</h5></div>
+                            <div>
+                                 
+                        </div>                            
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+
+                <div class="col-xl-4 col-md-6">
+                    <div class="blog-item feed-blog-item">
+                        <div class="blog-picture" >
+                            <div class="play-btn play-video " style="position:relative;">
+                            <img src="{% static 'app/assets/images/sw.jpeg' %}" alt="blog-image">
+                            <a class="popup-video"
+                                href="{% static 'app/assets/videos/Gaurika.mp4' %}" 
+                                data-effect="mfp-move-horizontal"><i class="fas fa-play"></i></a>
+                                 <div class="title " style="position:absolute; bottom:20px; left:20px; z-index:100;"> <h5 class="text-white text-center">GAURIKA SINGH, SWIMMING BACK STROKE PERFORMANCE</h5></div>
+                            <div>
+                                 
+                        </div>                            
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</div>
+<!--================= LATEST NEWS VIDEOS  Section End Here =================-->
+
+{% endblock %}
+
+              

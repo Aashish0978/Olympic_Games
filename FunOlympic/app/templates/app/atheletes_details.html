@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+ Atheletes_Details 
+{% endblock %}
+{% block body %}
+
+
+<div class="col-md-12" data-aos="fade-up">
+    <h3 class="atheletes-title">{{ath_details.atheletes}}</h3>
+    <div class="d-md-flex post-entry-2 half mt-5 ">
+      <a href="{% url 'atheletes' %}" class="col-md-2">
+        <img src="{{ath_details.image.url}}" alt="" class="img-fluid"></a>
+    <div>
+        <div>
+            <h3 class="mb-4 display-4">{{ath_details.name}}</h3>
+            <p>{{ath_details.description}}</p> 
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+ Sports_details
+{% endblock %}
+{% block body %}
+
+
+<div class="col-md-12" data-aos="fade-up">
+    <h3 class="category-title">{{detail.catagory}}</h3>
+    <div class="d-md-flex post-entry-2 half mt-5 ">
+      <a href="{% url 'sports'  %}" class="col-md-4">
+        <img src="{{detail.image.url}}" alt="" class="img-fluid"></a>
+    <div>
+      <div class="post-meta"><span class="date">{{detail.catagory}}</span> <span class="mx-1">&bullet;</span> <span>{{detail.created_date}}</span></div>
+        <h3 class="mb-4 display-4">{{detail.title}}</h3>
+          <p>{{detail.description}}</p> 
+      </div>
+    </div>
+</div>
+{% endblock %}

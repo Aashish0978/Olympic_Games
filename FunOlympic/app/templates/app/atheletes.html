@@ -1,0 +1,154 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+Atheletes
+{% endblock %}
+{% block body %}
+
+    <!--================= Team Section Start Here =================-->
+    <div class="rts-team-section inner section-gap">
+        <div class="container">
+            <div class="team-section-inner inner">
+                <h3 class="title">Atheletes</h3>
+                <div class="row">
+                    {% for item in atheletes %}
+                    <div class="col-xl-2 col-md-4 col-sm-6" style= "border-circle">
+                        <div class="team-wraper">
+                            <div class="player-card">
+                                <a class="image" href="#"><img src="{{item.image.url}}" alt=""></a>
+                                {% comment %} <ul class="social-area">
+                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                </ul> {% endcomment %}
+                            </div>
+                            <div class="profile">
+                                <p class="atheletes">{{item.atheletes}}</p>
+                                <a href="{% url 'atheletes_details' item.atheletes_slug %}" class="name">{{item.name}}</a>
+                            </div>
+                        </div>
+                    </div>
+                  
+                {% endfor %}
+            </div>
+        </div>
+        <div class="text-center" >
+            {% if atheletes.has_previous %}
+           <a href="?page={{ atheletes.previous_page_number }}"  class="btn btn-secondary mx-2" >&laquo;</a></button>
+            {% endif %}
+            <a href="?page=1" class="btn btn-secondary">1</a></button>
+            <a href="?page=2" class="btn btn-secondary">2</a></button>
+            <a href="?page=3" class="btn btn-secondary">3</a></button>
+          
+            {% if atheletes.has_next %}
+            <a href="?page={{ atheletes.next_page_number }}" class="btn btn-secondary mx-2">&raquo;</a></button>
+            {% endif %}
+        </div>
+        
+    </div>
+    <!--================= Team Section End Here =================-->
+
+
+    <!--================= Team Details Section Start Here =================-->
+    {% comment %} <div class="rts-team-member-details">
+        <div class="container">
+            <div class="team-details-single">
+                <h3 class="title">COACH JOSE MOURIN</h3>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="team-picture">
+                            <img src="{% static 'app/assets/images/team/financial.jpg' %}" alt="playerspic">
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="team-status-area">
+                            <div class="status-box">
+                                <div class="status-item">
+                                    <span class="status-name">NATIONALITY:</span>
+                                    <span class="status-number"><img src="{% static 'app/assets/images/team/arg.png' %}" alt=""> ARGENTINA</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-name">CURRENT TEAM:</span>
+                                    <a href="/" class="status-number club">KESTER</a>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-name">PAST TEAM</span>
+                                    <span class="status-number">INTER MILAN</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-name">AGE</span>
+                                    <span class="status-number">45</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team-details-single">
+                <h3 class="title">PHYSICIAN SAM FOSTER</h3>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="team-picture">
+                            <img src="{% static 'app/assets/images/team/physician.jpg' %}" alt="playerspic">
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="team-status-area">
+                            <div class="status-box">
+                                <div class="status-item">
+                                    <span class="status-name">NATIONALITY:</span>
+                                    <span class="status-number"><img src="{% static 'app/assets/images/team/ita.png' %}" alt=""> ITALY</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-name">CURRENT TEAM:</span>
+                                    <a href="/" class="status-number club">KESTER</a>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-name">PAST TEAM</span>
+                                    <span class="status-number">ASTON VILLA</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-name">AGE</span>
+                                    <span class="status-number">45</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="team-details-single">
+                <h3 class="title">FINANCIAL ADVISOR STEPHEN CORR</h3>
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="team-picture">
+                            <img src="{% static 'app/assets/images/team/coach.jpg' %}" alt="playerspic">
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="team-status-area">
+                            <div class="status-box">
+                                <div class="status-item">
+                                    <span class="status-name">NATIONALITY:</span>
+                                    <span class="status-number"><img src="{% static 'app/assets/images/team/por.png' %}" alt=""> PORTUGAL</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-name">CURRENT TEAM:</span>
+                                    <a href="/" class="status-number club">KESTER</a>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-name">PAST TEAM</span>
+                                    <span class="status-number">ATLANTA</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-name">AGE</span>
+                                    <span class="status-number">45</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> {% endcomment %}
+    <!--================= Team Details Section End Here =================-->
+{% endblock %}
