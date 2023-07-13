@@ -1,0 +1,218 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+Gallery
+{% endblock %}
+{% block body %}
+
+    <!--================= Gallery Section Start Here =================-->
+    <div class="rts-gallery-section">
+        <div class="container">
+            {% comment %} <div class="top-wrap">
+                <div class="filter-button-group">
+                    <button class="filter-btn active" data-show=".fifa20">FIFA 2023</button>
+                    <button class="filter-btn" data-show=".uefacup">UEFA CUP</button>
+                    <button class="filter-btn" data-show=".warmup">WARM-UP</button>
+                    <button class="filter-btn" data-show=".national">NATIONAL</button>
+                </div>
+            </div> {% endcomment %}
+            
+            <div class="gallery-grid">
+                <div class="row">
+                    {% for item in gallery %}
+                    <div class="col-xl-4 col-md-6">
+                        <div class="gallery-item">
+                            <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                <a href="{{item.image.url}}"><img src="{{item.image.url}}" alt="gallery-image"></a>
+                                {% comment %} <button class="pop-btn"><i class="fal fa-plus"></i></button> {% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                
+            </div>
+            
+            {% comment %} <div class="filterd-items uefacup hide">
+                <div class="gallery-grid">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/2.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/1.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/4.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/3.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/6.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/5.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="filterd-items warmup hide">
+                <div class="gallery-grid">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/1.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/2.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/3.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/4.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/5.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/6.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="filterd-items national hide">
+                <div class="gallery-grid">
+                    <div class="row">
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/1.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/2.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/3.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/4.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/5.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="gallery-item">
+                                <div class="gallery-image image-popup-vertical-fit" title="Football.png' %}">
+                                    <a href="#"><img src="{% static 'app/assets/images/gallery/6.png' %}" alt="gallery-image"></a>
+                                    <button class="pop-btn"><i class="fal fa-plus"></i></button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  {% endcomment %}
+        </div>
+        <div class="text-center" >
+          
+            {% if gallery.has_previous %}
+            <button class="prev"><a href="?page={{ gallery.previous_page_number }}" class="btn btn-secondary mx-2">&laquo;</a></button>
+            {% endif %}
+           
+            <a href="?page=1" class="btn btn-secondary">1</a>
+            <a href="?page=2" class="btn btn-secondary">2</a>
+            <a href="?page=3" class="btn btn-secondary">3</a>
+          
+            {% if gallery.has_next %}
+            <button class="next"><a href="?page={{ gallery.next_page_number }}" class="btn btn-secondary mx-2">&raquo;</a></button>
+            {% endif %}
+          
+          </div>
+    </div>
+    <!--================= Gallery Section End Here =================-->
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+Account
+{% endblock %}
+{% block body %}
+
+    <!--================= Account Section Start Here =================-->
+    <div class="rts-account-section section-gap">
+        <div class="container">
+            <div class="account-inner">
+                <div class="account-side-navigation">
+                    <button class="filter-btn active" data-show=".dashboard"><i class="fal fa-chart-bar"></i>
+                        Dashboard</button>
+                    <a href="{% url 'changepassword' %}" class="filter-btn" data-show=".accountdtls"><i 
+                            class="fal fa-user"></i> 
+                        Change password</a>
+                    <a href="{% url 'logout' %}" class="filter-btn" data-show=".dashboard"><div class="icon"><i class="fas fa-sign-out-alt"></i></div>
+                        Logout</a>
+                </div>
+                <div class="account-main-area">
+                    <div class="account-main dashboard filterd-items">
+                        <div class="account-profile-area">
+                            <div class="profile-dp"><img src="{% static 'app/assets/images/blog/authordp.jpg' %}" alt="profile-dp"></div>
+                            <div class="d-block">
+                                <span class="profile-name"><span>Hi,</span>{{request.user.username}}</span>
+                                <span class="profile-date d-block">June 23, 2023</span>
+                            </div>
+                        </div>
+                        <p>Welcome to FunOlympic Games!!! <BR>From your account dashboard you can view all the details of matches and players.</p>
+
+                        {% comment %} <div class="activity-box">
+                            <div class="activity-item">
+                                <div class="icon"><i class="fas fa-box-check"></i></div>
+                                <span class="title">Active Orders</span>
+                                <span class="value">33</span>
+                            </div>
+                            <div class="activity-item">
+                                <div class="icon"><i class="fas fa-download"></i></div>
+                                <span class="title">Downloads</span>
+                                <span class="value">10</span>
+                            </div>
+                            <div class="activity-item">
+                                <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <span class="title">Address</span>
+                                <span class="value">12/A, New Castle, NYC</span>
+                            </div>
+                            <div class="activity-item">
+                                <div class="icon"><i class="fas fa-user"></i></div>
+                                <span class="title">Account Details</span>
+                                <span class="value">33</span>
+                            </div>
+                            <div class="activity-item">
+                                <div class="icon"><i class="fas fa-heart"></i></div>
+                                <span class="title">Wishlist</span>
+                                <span class="value">33</span>
+                            </div>
+                            <a href="{% url 'logout' %}" class="activity-item">
+                                <div class="icon"><i class="fas fa-sign-out-alt"></i></div>
+                                <span class="title">Logout</span>
+                            </a>
+                        </div> {% endcomment %}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================= Account Section End Here =================-->
+{% endblock %}

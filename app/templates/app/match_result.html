@@ -1,0 +1,63 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% comment %} {% block title %} Sports {% endblock %} {% endcomment %}
+{% block body %}
+  <!--================= Point Table Section Start Here =================-->
+  <div class="rts-point-table-section inner section-gap">
+    <div class="container">
+        <div class="section-title-area section-title-area1 text-center mb--70">
+           
+            <h1 class="section-title">RESULTS</h1>
+            {% comment %} <p>It is one of the most popular football clubs that offer training programs
+                for the youth, as well as summer camps</p> {% endcomment %}
+        </div>
+        <div class="table-area table-full inner">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                </thead>
+                <tbody>
+                    <tr class="head-tr two">
+                        <th scope="col">SEASON</th>
+                        <th scope="col">Gold</th>
+                        <th scope="col">Silver</th>
+                        <th scope="col">Bronze</th>
+                        <th scope="col">Fourth</th>
+                        <th scope="col">Fisth</th>
+                        <th scope="col">sixth</th>
+                        <th scope="col">Seventh</th>
+                        <th scope="col">Eighth</th>
+                        <th scope="col">Ninth </th>
+                        <th scope="col">Tenth</th>
+                    </tr>
+                    {% for  item in result %}
+                    <tr class="two">
+                     
+                        <td><span class="position-number">{{item.date}}</span></td>
+                        <td>
+                            <div class="product-title-area">
+                                <h4 class="player-name">{{item.gold}}</h4>
+                            </div>
+                        </td>
+                        <td><span class="match-count">{{item.silver}}</span></td>
+                        <td><span class="win-count">{{item.bronze}}</span></td>
+                        <td><span class="draw-count">{{item.fourth}}</span></td>
+                        <td><span class="lose-count">{{item.fifth}}</span></td>
+                        <td><span class="lose-count">{{item.sixth}}</span></td>
+                        <td><span class="lose-count">{{item.seventh}}</span></td>
+                        <td><span class="lose-count">{{item.eighth}}</span></td>
+                        <td><span class="lose-count">{{item.ninth}}</span></td>
+                        <td><span class="lose-count">{{item.tenth}}</span></td>
+                
+                    </tr>
+                    {% endfor %}
+     
+                </tbody>
+            </table>
+        
+           
+        </div>
+ 
+    </div>
+</div>
+<!--================= Point Table Section End Here =================-->
+{% endblock %}

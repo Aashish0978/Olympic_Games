@@ -1,0 +1,281 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}
+ 
+{% endblock %}
+{% block body %}
+    <!--================= Latest Match Start Here =================-->
+    <div class="rts-latest-match">
+        <div class="container">
+            <div class="latest-match-inner">
+                <div class="club-area">
+                    <div class="club-logo"><img src="{% static 'app/assets/images/flag/flag-of-Afghanistan.png' %}" alt=""></div>
+                    <div class="content">
+                        <h3 class="club-text">Afghanistan</h3>
+                        {% comment %} <span class="match-type">SEMI FINAL</span> {% endcomment %}
+                    </div>
+                </div>
+                <div class="match-countdown-area">
+                    <div class="countdown">
+                        <div class="countdown-el days-c">
+                            <span class="value" id="days"></span>
+                        </div>
+                        <span class="letter">D</span>
+                        <div class="countdown-el hours-c">
+                            <span class="value" id="hours"></span>
+                        </div>
+                        <span class="letter">H</span>
+                        <div class="countdown-el mins-c">
+                            <span class="value" id="mins"></span>
+                        </div>
+                        <span class="letter">M</span>
+                        <div class="countdown-el seconds-c">
+                            <span class="value" id="seconds"></span>
+                        </div>
+                        <span class="letter">S</span>
+                    </div>
+                </div>
+                <div class="club-area">
+                    <div class="content text-end ml--40 mr--0">
+                        <h3 class="club-text">China</h3>
+                        {% comment %} <span class="match-type">SEMI FINAL</span> {% endcomment %}
+                    </div>
+                    <div class="club-logo ml--40 mr--0"><img src="{% static 'app/assets/images/flag/flag-of-China.png' %}" alt=""></div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!--================= Latest Match End Here =================-->
+
+    <!--================= Gallery Start Here =================-->
+    <div class="section-title-area section-title-area1 text-center">
+        <h1 class="section-title" style="position:center" >Gallery</h1>
+    </div>
+    <div class="rts-gallery-section">
+        <div class="container">
+            <div class="gallery-area">
+                {% for item in gallery %}
+                <div class="gallery-item text-center">
+                    <a href="#0" class="gallery-picture"><img src="{{item.image.url}}" alt=""></a>
+                    <a href="#0" class="gallery-picture1"><img src="{{item.image.url}}" alt=""></a>
+                    
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div>
+    <!--================= Gallery Section End Here =================-->
+
+    <!--================= Next Match Section Start Here =================-->
+    <div class="rts-match-result-section rts-match-result-section2 rts-match-schedule-section inner section-gap">
+        <div class="container">
+            <div class="section-title-area section-title-area1 text-center mb--10">
+                <span class="pretitle">Matches</span>
+                <h1 class="section-title">Latest Match</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    {% for item in matches %}
+                    <div class="match-single">
+                        <div class="match-single-content">
+                            <div class="match-scores">
+                                <div class="club club1">
+                                    <div class="club-logo mr--20">
+                                        <span class="club-name">{{item.team_1}}</span>
+                                        <img src="{{item.team1_image.url}}" alt="club-logo">
+                                    </div>
+                                </div>
+                                <div class="colon">VS</div>
+                                <div class="club club2">
+                                    <div class="club-logo ml--20">
+                                        <img src="{{item.team2_image.url}}" alt="club-logo">
+                                        <span class="club-name">{{item.team_2}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-wrap">
+                                <span class="match-title">{{item.sport}}</span>
+                                <span class="match-date">{{item.date}}</span>
+                                <span class="stadium-name">{{item.location}}</span>
+                            </div>
+                        </div>
+                        <div class="match-bottom-action">
+                            <a href="{% url 'booking' %}" class="action-item first-child">GET TICKETS</a>
+                            <div class="play-video">
+                                <a href="https://www.youtube.com/watch?v=G4t6TqG5LM8"
+                                    class="action-item popup-video">WATCH STREAM</a>
+                            </div> 
+                            
+                        </div>
+                    </div>  
+                </div>
+                {% endfor %} 
+            </div>
+        </div>
+    </div>
+    <!--================= Next Match Section End Here =================-->
+
+    <!--================= Sponsors Section Start Here =================-->
+    <div class="rts-sponsors-section section-gap">
+        <div class="container">
+            <div class="section-title-area section-title-area1 text-center mb--10">
+                <span class="pretitle">SPONSOR</span>
+                <h1 class="section-title">HAPPY SPONSORS</h1>
+                {% comment %} <p>It is one of the most popular football clubs that offer training programs
+                    for the youth, as well as summer camps.</p> {% endcomment %}
+            </div>
+            <div class="sponsors-section-inner">
+                <div class="swiper rts-brandSlider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="#0" class="sponsor-single">
+                                <div class="sponsors-logo"><img src="{% static 'app/assets/images/cocacola.png' %}"  alt="sponsor" ></div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#0" class="sponsor-single">
+                                <div class="sponsors-logo"><img src="{% static 'app/assets/images/samsung.png' %}" class= "circle" alt="sponsor" style="height=20px; width=10px; border-radius=60%" ></div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#0" class="sponsor-single">
+                                <div class="sponsors-logo"><img src="{% static 'app/assets/images/nissan.png' %}" class= "circle"  alt="sponsor" style="height=20px; width=10px; border-radius=60%"></div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#0" class="sponsor-single">
+                                <div class="sponsors-logo"><img src="{% static 'app/assets/images/ali.png' %}" class="circle"  alt="sponsor" style= "height=20px; width=10px; border-radius=60%"></div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#0" class="sponsor-single">
+                                <div class="sponsors-logo"><img src="{% static 'app/assets/images/nike.png' %}" class="circle"  alt="sponsor" style= "height=20px; width=10px; border-radius=60%" ></div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="#0" class="sponsor-single">
+                                <div class="sponsors-logo"><img src="{% static 'app/assets/images/atari.png' %}" class="circle" alt="sponsor"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================= Sponsors Table Section End Here =================-->
+
+
+    <!--================= Video Section Start Here =================-->
+    <div class="rts-video-section">
+        <div class="container">
+            
+            <div class="video-section-inner text-center">
+                <div class="play-video">
+                    <a class="popup-video" href="{% static 'app/assets/videos/Highlights.mp4' %}" title="YouTube video player"><i
+                            class="fas fa-play"></i></a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!--================= VIdeo Section End Here =================-->
+
+
+
+    <!--================= Blog Section Start Here =================-->
+    {% comment %} <div class="rts-blog-section section-gap">
+        <div class="container">
+            <div class="section-title-area section-title-area1 text-center mb--50">
+                <span class="pretitle">INSIGHTS</span>
+                <h1 class="section-title">OUR LATEST NEWS</h1>
+                <p>It is one of the most popular football clubs that offer training programs
+                    for the youth, as well as summer camps.</p>
+            </div>
+            <div class="blog-area">
+                <div class="row">
+                    <div class="col-xl-4 col-md-6">
+                        <div class="blog-item">
+                            <div class="blog-picture"><img src="{% static 'app/assets/images/blog/blog1.jpg' %}" alt=""></div>
+                            <div class="contents-wrapper">
+                                <div class="contents">
+                                    <div class="d-block">
+                                        <a href="#0" class="blog-catagory">FOOTBALL</a>
+                                        <a href="#" class="blog-title">THE ENGLISH LEAGUE – WHAT TO
+                                            EXPECT
+                                            FROM
+                                            ENGLAND FOOTBALL CLUB</a>
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="author-dp"><img src="{% static 'app/assets/images/items/author2.png' %}"
+                                                alt="author-dp"></div>
+                                        <div class="content">
+                                            <a href="#0" class="author-name">CLUB DA AUTHOR</a>
+                                            <div class="blog-date">
+                                                <div class="date">June 21, 2022</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="blog-item">
+                            <div class="blog-picture"><img src="{% static 'app/assets/images/blog/blog2.jpg' %}" alt=""></div>
+                            <div class="contents-wrapper">
+                                <div class="contents">
+                                    <div class="d-block">
+                                        <a href="#0" class="blog-catagory">FOOTBALL</a>
+                                        <a href="#" class="blog-title">THE LA LIGA – WHAT TO EXPECT
+                                            FROM
+                                            SPANISH FOOTBALL CLUB</a>
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="author-dp"><img src="{% static 'app/assets/images/items/author2.png' %}"
+                                                alt="author-dp"></div>
+                                        <div class="content">
+                                            <a href="#0" class="author-name">CLUB DA AUTHOR</a>
+                                            <div class="blog-date">
+                                                <div class="date">June 21, 2022</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="blog-item">
+                            <div class="blog-picture"><img src="{% static 'app/assets/images/blog/blog3.jpg' %}" alt=""></div>
+                            <div class="contents-wrapper">
+                                <div class="contents">
+                                    <div class="d-block">
+                                        <a href="#0" class="blog-catagory">FOOTBALL</a>
+                                        <a href="#" class="blog-title">THE UCL – WHAT TO EXPECT
+                                            FROM
+                                            ALL OVER FOOTBALL CLUB</a>
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="author-dp"><img src="{% static 'app/assets/images/items/author3.png' %}"
+                                                alt="author-dp"></div>
+                                        <div class="content">
+                                            <a href="#0" class="author-name">CLUB DA AUTHOR</a>
+                                            <div class="blog-date">
+                                                <div class="date">June 21, 2022</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> {% endcomment %}
+    <!--================= BLog Details Section End Here =================-->
+
+{% endblock %}

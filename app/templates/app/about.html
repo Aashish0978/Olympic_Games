@@ -1,0 +1,177 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} 
+About  
+{% endblock %}
+{% block body %}
+
+    <!--================= About Section Start Here =================-->
+    <section>
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+              <h1 class="page-title">About us</h1>
+            </div>
+          </div>
+  
+          <div class="row mb-5">
+            {% for item in data %}
+            {% if forloop.counter|divisibleby:2 %}
+            <div class="d-md-flex post-entry-2 half">
+              <a href="#" class="me-4 thumbnail">
+                <img src="{{ item.image.url}}" alt="" class="img-fluid">
+              </a>
+              <div class="ps-md-5 mt-4 mt-md-0">
+                <h2 class="mb-4 display-4">{{ item.title }}</h2>
+  
+                <p>{{ item.description}}</p>
+              </div>
+             
+            </div>
+            {% else %}
+            <div class="d-md-flex post-entry-2 half mt-5">
+              <a href="#" class="me-4 thumbnail order-2">
+                <img src="{{ item.image.url }}" alt="" class="img-fluid">
+              </a>
+              <div class="pe-md-5 mt-4 mt-md-0">
+                <h2 class="mb-4 display-4">{{item.title }}</h2>
+  
+                <p>{{ item.description }}</p>
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+  
+        </div>
+      </section>
+    
+    <!--================= Champions Section Start Here =================-->
+    {% comment %} <div class="rts-champion-section">
+        <div class="player-image"><img src="{% static 'app/assets/images/about/player2.png' %}" alt=""></div>
+        <div class="container">
+            <div class="top-wrap">
+                <div class="filter-button-group">
+                    <button class="filter-btn active" data-show=".yr90">1990</button>
+                    <button class="filter-btn" data-show=".yr10">2010</button>
+                    <button class="filter-btn" data-show=".yr12">2012</button>
+                    <button class="filter-btn" data-show=".yr15">2015</button>
+                    <button class="filter-btn" data-show=".yr22">2022</button>
+                </div>
+            </div>
+            <div class="champion-details filterd-items yr90">
+                <div class="contents">
+                    <h1 class="details-title">THE CHAMPIONS LEAGUE
+                        TROPHY SINCE 1990</h1>
+                    <p class="p1">It is one of the most popular football clubs that offer training programs
+                        for the youth, as well as summer camps. Play the fastest NFT based fantasy
+                        football manager earn coins, collect & trade officially.</p>
+
+                    <p class="p2">
+                        Welcome to the official Chelsea FC website. Get all the latest news, videos
+                        & ticket information as well as player profiles.
+                    </p>
+                </div>
+                <div class="details-video">
+                    <div class="video-thumb"><img src="{% static 'app/assets/images/about/video1.png' %}" alt="video-thumb">
+                        <div class="play-btn play-video"><a class="popup-video"
+                                href="https://www.youtube.com/watch?v=G4t6TqG5LM8" data-effect="mfp-move-horizontal"><i
+                                    class="fas fa-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="champion-details filterd-items yr10 hide">
+                <div class="contents">
+                    <h1 class="details-title">THE CHAMPIONS LEAGUE
+                        TROPHY 2010</h1>
+                    <p class="p1">It is one of the most popular football clubs that offer training programs
+                        for the youth, as well as summer camps. Play the fastest NFT based fantasy
+                        football manager earn coins, collect & trade officially.</p>
+
+                    <p class="p2">
+                        Welcome to the official Chelsea FC website. Get all the latest news, videos
+                        & ticket information as well as player profiles.
+                    </p>
+                </div>
+                <div class="details-video">
+                    <div class="video-thumb"><img src="{% static 'app/assets/images/about/video1.png' %}" alt="video-thumb">
+                        <div class="play-btn play-video"><a class="popup-video"
+                                href="https://www.youtube.com/watch?v=G4t6TqG5LM8" data-effect="mfp-move-horizontal"><i
+                                    class="fas fa-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="champion-details filterd-items yr12 hide">
+                <div class="contents">
+                    <h1 class="details-title">THE CHAMPIONS LEAGUE
+                        TROPHY 2012</h1>
+                    <p class="p1">It is one of the most popular football clubs that offer training programs
+                        for the youth, as well as summer camps. Play the fastest NFT based fantasy
+                        football manager earn coins, collect & trade officially.</p>
+
+                    <p class="p2">
+                        Welcome to the official Chelsea FC website. Get all the latest news, videos
+                        & ticket information as well as player profiles.
+                    </p>
+                </div>
+                <div class="details-video">
+                    <div class="video-thumb"><img src="{% static 'app/assets/images/about/video1.png' %}" alt="video-thumb">
+                        <div class="play-btn play-video"><a class="popup-video"
+                                href="https://www.youtube.com/watch?v=G4t6TqG5LM8" data-effect="mfp-move-horizontal"><i
+                                    class="fas fa-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="champion-details filterd-items yr15 hide">
+                <div class="contents">
+                    <h1 class="details-title">THE CHAMPIONS LEAGUE
+                        TROPHY 2015</h1>
+                    <p class="p1">It is one of the most popular football clubs that offer training programs
+                        for the youth, as well as summer camps. Play the fastest NFT based fantasy
+                        football manager earn coins, collect & trade officially.</p>
+
+                    <p class="p2">
+                        Welcome to the official Chelsea FC website. Get all the latest news, videos
+                        & ticket information as well as player profiles.
+                    </p>
+                </div>
+                <div class="details-video">
+                    <div class="video-thumb"><img src="{% static 'app/assets/images/about/video1.png' %}" alt="video-thumb">
+                        <div class="play-btn play-video"><a class="popup-video"
+                                href="https://www.youtube.com/watch?v=G4t6TqG5LM8" data-effect="mfp-move-horizontal"><i
+                                    class="fas fa-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="champion-details filterd-items yr22 hide">
+                <div class="contents">
+                    <h1 class="details-title">THE CHAMPIONS LEAGUE
+                        TROPHY 2022</h1>
+                    <p class="p1">It is one of the most popular football clubs that offer training programs
+                        for the youth, as well as summer camps. Play the fastest NFT based fantasy
+                        football manager earn coins, collect & trade officially.</p>
+
+                    <p class="p2">
+                        Welcome to the official Chelsea FC website. Get all the latest news, videos
+                        & ticket information as well as player profiles.
+                    </p>
+                </div>
+                <div class="details-video">
+                    <div class="video-thumb"><img src="{% static 'app/assets/images/about/video1.png' %}" alt="video-thumb">
+                        <div class="play-btn play-video"><a class="popup-video"
+                                href="https://www.youtube.com/watch?v=G4t6TqG5LM8" data-effect="mfp-move-horizontal"><i
+                                    class="fas fa-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> {% endcomment %}
+    <!--================= Champions Section End Here =================-->
+
+</html>
+{% endblock %}

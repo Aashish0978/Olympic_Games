@@ -1,0 +1,83 @@
+
+
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %} Sports {% endblock %}
+{% block body %}
+
+    <!--contact-area start-->
+    <div class="contact-area">
+        <div class="container">
+            <div class="address-box">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        
+                        <div class="address">
+                            <div class="icon"><i class="far fa-map-marker-alt"></i></div>
+                            <div class="content">
+                                <h3 class="heading">
+                                    HEADQUARTERS
+                                </h3>
+                                <p class="desc">YOKYO CITY,
+                                    CHINA</p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="col-lg-6 col-md-6">
+                        <div class="address">
+                            <div class="icon"><i class="far fa-phone-volume"></i></div>
+                            <div class="content">
+                                <h3 class="heading">
+                                    MAIL US 24/7
+                                </h3>
+                                <p class="desc">YOKYO CITY,
+                                    CHINA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        
+
+            <div class="contact-area-inner">
+                <div class="row align-items-start">
+                    <div class="col-lg-6 col-md-8" >
+                        <form class="contact-form mb-10"  method ="post" action="{% url 'contact' %}">
+                            {% csrf_token %}
+                            <h3 class="post-title mb-35">Contact Us</h3>
+                            <div class="info-form">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div class="input-box name mb-20">
+                                            <input type="text" id="validationDefault01" name="fname" placeholder="Your Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div class="input-box email mail-input mb-20">
+                                            <input type="email" id="validationDefault02" name="email" placeholder="Your E-mail"
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-sm-12">
+                                        <div class="input-box message text-input mb-20">
+                                            <textarea name="message" id="validationDefault05" cols="30" rows="10"
+                                                placeholder="Write Your Message" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 mb-15">
+                                        <button type="submit" class="form-btn form-btn4">
+                                           Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--contact-area end-->
+
+{%endblock%}
